@@ -1,7 +1,7 @@
 
 dependencies:
   pre:
-    # Setting up git user, note git private key should be already set up in SSH permissions with write permision 
+    # Setting up git user, note git private key should be already set up in SSH permissions with write permision
     - |
       git config --global user.email "sixuan.wang@qlik.com"
       git config --global user.name "sixuanwang"
@@ -22,4 +22,4 @@ deployment:
         git remote add upstream git@github.com:sixuanwang/hello-world
         git fetch upstream && git rebase upstream/master
         git push
-      - gradle releaseTag
+      - gradle releaseTag -Pversion_num=$VERSION_NUM

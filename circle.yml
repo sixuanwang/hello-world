@@ -1,15 +1,10 @@
-# 
-# dependencies:
-#   pre:
-#     # Setting up git for issuing PRs back to sense-windows-terraform
-#     - |
-#       GIT_USERNAME=$(curl -s -H "Authorization: token ${GITHUB_API_TOKEN}" \
-#         https://api.github.com/user | jq '.login')
-#       GIT_EMAIL=$(curl -s -H "Authorization: token ${GITHUB_API_TOKEN}" \
-#         https://api.github.com/user/emails | jq '.[] | select(.primary == true).email')
-#       git config --global user.email "${GIT_EMAIL}"
-#       git config --global user.name "${GIT_USERNAME}"
-#       git config --global push.default simple
+
+dependencies:
+  pre:
+    # Setting up git 
+      git config --global user.email "sixuan.wang@qlik.com"
+      git config --global user.name "sixuanwang"
+      git config --global push.default simple
 
 deployment:
   deploy-master:

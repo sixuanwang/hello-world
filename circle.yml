@@ -1,7 +1,7 @@
 
 dependencies:
   pre:
-    # Setting up git
+    # Setting up git account
     - |
       git config --global user.email "sixuan.wang@qlik.com"
       git config --global user.name "sixuanwang"
@@ -13,7 +13,7 @@ deployment:
     commands:
       - |
         set -e
-        # Clone the fork
+        # Clone the git repo
         git clone git@github.com:sixuanwang/hello-world
         cd hello-world
         git checkout master

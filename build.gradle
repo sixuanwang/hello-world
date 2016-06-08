@@ -14,13 +14,13 @@ dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
+ext.gitTag = "v1.0.0"
 
-task tagReleasing(type: TagReleasingTask)
+task createTag(type:Exec) {
+  def message = "New releasing" + gitTag
+  commandLine 'git', 'tag', '-a', gitTag, '-m', message
+}
 
-class TagReleasingTask extends DefaultTask {
-    @TaskAction
-    def releasing() {
-      println 'git tag -a v0.0.2 -m "Releasing with gradle v0.0.2"'.execute().text.trim()
-      println 'git push --tags'.execute().text.trim()
-    }
+task pushTag(type:Exec, dependsOn: createTag) {
+  commandLine 'git', 'push', '--tags'
 }

@@ -22,4 +22,4 @@ deployment:
         git remote add upstream git@github.com:sixuanwang/hello-world
         git fetch upstream && git rebase upstream/master
         git push
-      - gradle releaseTag -PVERSION_NUM=$VERSION_NUM
+      - gradle releaseTag -Pversion_num=$VERSION_NUM

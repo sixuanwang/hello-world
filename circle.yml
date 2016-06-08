@@ -1,10 +1,11 @@
 
 dependencies:
   pre:
-    # Setting up git account
+    # Setting up git user, note git private key should be already set up in SSH permissions with write permision 
     - |
       git config --global user.email "sixuan.wang@qlik.com"
       git config --global user.name "sixuanwang"
+      # prevent git push <branch>
       git config --global push.default simple
 
 deployment:

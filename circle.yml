@@ -1,7 +1,8 @@
 
 dependencies:
   pre:
-    # Setting up git 
+    # Setting up git
+    - |
       git config --global user.email "sixuan.wang@qlik.com"
       git config --global user.name "sixuanwang"
       git config --global push.default simple

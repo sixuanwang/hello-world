@@ -1,5 +1,28 @@
+# 
+# dependencies:
+#   pre:
+#     # Setting up git for issuing PRs back to sense-windows-terraform
+#     - |
+#       GIT_USERNAME=$(curl -s -H "Authorization: token ${GITHUB_API_TOKEN}" \
+#         https://api.github.com/user | jq '.login')
+#       GIT_EMAIL=$(curl -s -H "Authorization: token ${GITHUB_API_TOKEN}" \
+#         https://api.github.com/user/emails | jq '.[] | select(.primary == true).email')
+#       git config --global user.email "${GIT_EMAIL}"
+#       git config --global user.name "${GIT_USERNAME}"
+#       git config --global push.default simple
+
 deployment:
   deploy-master:
     branch: master
     commands:
+      - |
+        set -e
+        # Clone the fork
+        git clone git@github.com:sixuanwang/hello-world
+        cd hello-world
+        git checkout master
+        # Make sure it's up-to-date
+        git remote add upstream git@github.com:sixuanwang/hello-world
+        git fetch upstream && git rebase upstream/master
+        git push
       - gradle releaseTag

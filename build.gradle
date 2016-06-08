@@ -14,9 +14,8 @@ dependencies {
   testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
-ext.git_tag = "$version_num"
-
 task createTag(type:Exec) {
+  def git_tag ="${version_num}"
   def message = "New releasing" + git_tag
   commandLine 'git', 'tag', '-a', git_tag, '-m', message
 }

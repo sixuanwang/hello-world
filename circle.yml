@@ -1,0 +1,5 @@
+deployment:
+  deploy-master:
+    branch: master
+    commands:
+      - gradle releaseTag

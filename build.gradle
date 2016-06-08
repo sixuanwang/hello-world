@@ -21,6 +21,6 @@ task createTag(type:Exec) {
   commandLine 'git', 'tag', '-a', gitTag, '-m', message
 }
 
-task pushTag(type:Exec, dependsOn: createTag) {
+task releaseTag(type:Exec, dependsOn: createTag) {
   commandLine 'git', 'push', '--tags'
 }

@@ -11,3 +11,6 @@ gradle hello world project
 - export VERSION_NUM=v0.0.1
 - export IS_OFFICIAL_RELEASE=true
 - run `gradle releaseTag -Pversion_num=$VERSION_NUM -Pis_official_release=$IS_OFFICIAL_RELEASE`
+
+## CI
+https://circleci.com/gh/sixuanwang/hello-world/34

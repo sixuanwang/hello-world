@@ -17,14 +17,14 @@ task createTag(type:Exec) {
   def git_tag = "${version_num}"
   def is_release = "${is_official_release}"
   def message = "New releasing " + git_tag
-  if (is_release) {
+  if (is_release == "true") {
     commandLine 'git', 'tag', '-a', git_tag, '-m', message
   }
 }
 
 task releaseTag(type:Exec, dependsOn: createTag) {
   def is_release = "${is_official_release}"
-  if(is_release) {
+  if (is_release == "true") {
     commandLine 'git', 'push', '-f', '--tags'
   }
 }

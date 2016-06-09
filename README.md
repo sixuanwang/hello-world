@@ -7,4 +7,6 @@ gradle hello world project
 
 ## Usage
 - change `git_tag` in `build.gradle`
-- run `gradle releaseTag`
+- export VERSION_NUM=v0.0.1
+- export IS_OFFICIAL_RELEASE=true
+- run `gradle releaseTag -Pversion_num=$VERSION_NUM -Pis_official_release=$IS_OFFICIAL_RELEASE`

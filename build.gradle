@@ -15,10 +15,16 @@ dependencies {
 
 task createTag(type:Exec) {
   def git_tag = "${version_num}"
+  def is_release = "${is_official_release}"
   def message = "New releasing " + git_tag
-  commandLine 'git', 'tag', '-a', git_tag, '-m', message
+  if (is_release) {
+    commandLine 'git', 'tag', '-a', git_tag, '-m', message
+  }
 }
 
 task releaseTag(type:Exec, dependsOn: createTag) {
-  commandLine 'git', 'push', '-f', '--tags'
+  def is_release = "${is_official_release}"
+  if(is_release) {
+    commandLine 'git', 'push', '-f', '--tags'
+  }
 }

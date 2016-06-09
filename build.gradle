@@ -15,11 +15,11 @@ dependencies {
 }
 
 task createTag(type:Exec) {
-  def git_tag = "v1.2.0"
-  def message = "New releasing" + git_tag
+  def git_tag = "v1.2.5"
+  def message = "New releasing " + git_tag
   commandLine 'git', 'tag', '-a', git_tag, '-m', message
 }
 
 task releaseTag(type:Exec, dependsOn: createTag) {
-  commandLine 'git', 'push', '-f', '--tags'
+  commandLine 'git', 'push', '--tags'
 }

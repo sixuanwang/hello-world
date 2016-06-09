@@ -19,6 +19,8 @@ task createTag(type:Exec) {
   def message = "New releasing " + git_tag
   if (is_release == "true") {
     commandLine 'git', 'tag', '-a', git_tag, '-m', message
+  } else {
+    commandLine 'echo', '"No need to do an official release."'
   }
 }
 
@@ -26,5 +28,7 @@ task releaseTag(type:Exec, dependsOn: createTag) {
   def is_release = "${is_official_release}"
   if (is_release == "true") {
     commandLine 'git', 'push', '-f', '--tags'
+  } else {
+    commandLine 'echo', '"No need to do an official release."'
   }
 }

@@ -2,8 +2,9 @@
 gradle hello world project
 
 1. gradle creates and releases tag
-2. cirecleCI sets up git account/credentials
-2. cirecleCI auto runs gradle buid with tag releas
+2. circleCI sets up git use and SSH permission
+3. circleCI sets two env variables VERSION_NUM and IS_OFFICIAL_RELEASE
+4. circleCI auto runs gradle build with tag release
 
 ## Usage
 - change `git_tag` in `build.gradle`
